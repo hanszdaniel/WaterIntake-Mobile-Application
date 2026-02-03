@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="WaterIntake.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:skia="clr-namespace:SkiaSharp.Views.Maui.Controls;assembly=SkiaSharp.Views.Maui.Controls"
+    Title="Water Intake">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Menu" Clicked="OnMenuClicked" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="25"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center">
+
+            <!-- Goal Section -->
+            <Label Text="Daily Water Intake Goal"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <HorizontalStackLayout Spacing="15"
+                                   HorizontalOptions="Center">
+                <Entry x:Name="GoalEntry"
+                       WidthRequest="120"
+                       Keyboard="Numeric"
+                       Placeholder="1500" />
+
+                <Label Text="ML"
+                       VerticalOptions="Center" />
+
+                <Button Text="Update Goal"
+                        BackgroundColor="#5944E8"
+                        TextColor="White"
+                        Clicked="OnUpdateGoalClicked" />
+            </HorizontalStackLayout>
+
+
+            <!-- SkiaSharp Circular Progress -->
+            <AbsoluteLayout HorizontalOptions="Center" VerticalOptions="Center">
+
+                <skia:SKCanvasView
+                    x:Name="ProgressCanvas"
+                    HeightRequest="220"
+                    WidthRequest="220"
+                    PaintSurface="OnCanvasViewPaintSurface" />
+
+                <Label x:Name="PercentLabel"
+                       Text="0%"
+                       FontSize="32"
+                       FontAttributes="Bold"
+                       AbsoluteLayout.LayoutFlags="PositionProportional"
+                       AbsoluteLayout.LayoutBounds="0.5,0.42,-1,-1" />
+
+                <Label x:Name="ProgressTextLabel"
+                       Text="0 / 0 ML"
+                       FontSize="16"
+                       AbsoluteLayout.LayoutFlags="PositionProportional"
+                       AbsoluteLayout.LayoutBounds="0.5,0.62,-1,-1" />
+            </AbsoluteLayout>
+
+
+            <!-- Quick Log Section -->
+            <Label Text="Quick Log"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <HorizontalStackLayout Spacing="15"
+                                   HorizontalOptions="Center">
+                <Button x:Name="Quick1Btn"
+                        WidthRequest="120"
+                        BackgroundColor="#5944E8"
+                        TextColor="White"
+                        Clicked="OnAddQuick1Clicked" />
+
+                <Button x:Name="Quick2Btn"
+                        WidthRequest="120"
+                        BackgroundColor="#5944E8"
+                        TextColor="White"
+                        Clicked="OnAddQuick2Clicked" />
+            </HorizontalStackLayout>
+
+            <Button Text="Edit Quick Log"
+                    BackgroundColor="#8888FF"
+                    TextColor="White"
+                    CornerRadius="8"
+                    WidthRequest="200"
+                    HorizontalOptions="Center"
+                    Clicked="OnEditQuickLogClicked" />
+
+            <!-- Custom Add -->
+            <HorizontalStackLayout Spacing="10"
+                                   HorizontalOptions="Center">
+                <Entry x:Name="CustomEntry"
+                       WidthRequest="120"
+                       Keyboard="Numeric"
+                       Placeholder="Custom" />
+
+                <Label Text="ML"
+                       VerticalOptions="Center" />
+
+                <Button Text="Add"
+                        BackgroundColor="#5944E8"
+                        TextColor="White"
+                        Clicked="OnAddCustomClicked" />
+            </HorizontalStackLayout>
+
+            <!-- Save + Reset Buttons -->
+            <HorizontalStackLayout Spacing="20"
+                                   HorizontalOptions="Center">
+                <Button Text="Save"
+                        WidthRequest="150"
+                        BackgroundColor="#5944E8"
+                        TextColor="White"
+                        Clicked="OnSaveClicked" />
+
+                <Button Text="Reset"
+                        WidthRequest="150"
+                        BackgroundColor="#FF4444"
+                        TextColor="White"
+                        Clicked="OnResetClicked" />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

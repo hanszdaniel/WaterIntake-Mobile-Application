@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WaterIntake.InformationPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="About">
+
+    <!-- ✅ Menu Button in Toolbar -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Menu" Clicked="OnMenuClicked" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="18">
+
+            <Image Source="appicon.png"
+                   WidthRequest="120"
+                   HeightRequest="120"
+                   HorizontalOptions="Center" />
+
+            <Label Text="Water Intake Tracker"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <Label Text="Version:"
+                   FontSize="16"
+                   FontAttributes="Bold" />
+            <Label Text="{Binding AppVersion}"
+                   FontSize="16" />
+
+            <Label Text="Developed By:"
+                   FontSize="16"
+                   FontAttributes="Bold" />
+            <Label Text="{Binding Developer}"
+                   FontSize="16" />
+
+            <Label Text="Description:"
+                   FontSize="16"
+                   FontAttributes="Bold" />
+            <Label Text="This mobile application helps users track daily water intake, monitor hydration progress, and stay healthy by reaching their personalized water goal every day."
+                   FontSize="16"
+                   LineBreakMode="WordWrap" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
